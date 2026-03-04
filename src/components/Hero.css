@@ -1,0 +1,155 @@
+/* ===== HERO SECTION ===== */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: #0a0a0a;
+  color: #ffffff;
+  padding: 0 8%;
+}
+
+/* Main Container */
+.hero-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+/* LEFT SIDE */
+.hero-left {
+  flex: 1;
+  max-width: 600px;
+
+  margin-left: 28px; /* adjust value (20px–60px) */
+}
+.code-line {
+  font-family: "Courier New", monospace;
+  color: #9e9b9b;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.accent {
+  color: #1bdbdf;
+}
+
+.hero-subtitle {
+  position: relative;
+  font-size: 2.2rem;
+  margin: 1rem 0;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #6cd46a;
+  letter-spacing: 0.8px;
+}
+
+.hero-subtitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0px;
+  height: 3px;
+  background: linear-gradient(90deg, #6cd46a, #00ffd5);
+  border-radius: 20px;
+}
+.hero-energy {
+  margin: 1.5rem 0;
+  line-height: 1.8;
+  font-size: 1.5rem;
+  color: #cccccc;
+}
+
+.hero-tagline {
+  margin: 1.5rem 0;
+  line-height: 1.9;
+  font-size: 1.05rem;
+  color: #aaaaaa;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  gap: 2.0rem;
+  margin-top: 2.0rem;
+}
+
+.btn-primary,
+.btn-outline {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #00ffd5;
+  color: #000;
+}
+
+.btn-primary:hover {
+  background-color: #00e6c1;
+}
+
+.btn-outline {
+  border: 2px solid #00ffd5;
+  color: #00ffd5;
+}
+
+.btn-outline:hover {
+  background-color: #00ffd5;
+  color: #000;
+}
+
+/* RIGHT SIDE */
+.hero-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Image Styling */
+.hero-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+
+  border: 2px solid rgba(255, 255, 255, 0.15);
+
+  transform: translateX(-30px);
+  transition: 0.4s ease;
+}
+
+.hero-image:hover {
+  transform: translateX(-20px) scale(1.03);
+}
+/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  /* Hide image on mobile */
+  .hero-right {
+    display: none;
+  }
+
+  /* 🔥 Center buttons */
+  .hero-buttons {
+    justify-content: center;
+  }
+}

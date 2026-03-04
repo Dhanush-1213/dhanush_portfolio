@@ -1,0 +1,92 @@
+/* Container */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: #000;
+  color: #ede2e2;
+}
+
+/* Section title */
+.contact-section .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Paragraphs */
+.contact-section .contact-text {
+  max-width: 600px;
+  margin-bottom: 3.0rem;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 500px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #00bfff;
+  outline: none;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Button */
+.contact-form button {
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  background-color: #00bfff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #009acd;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+  justify-content: center;
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+  transform: scale(1.2);
+}
+
+/* Individual colors */
+.social-links .github {
+  color: #fffefe;
+}
+
+.social-links .linkedin {
+  color: #0a66c2;
+}
+
+.social-links .twitter {
+  color: #1da1f2;
+}

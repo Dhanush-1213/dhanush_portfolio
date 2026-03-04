@@ -1,0 +1,124 @@
+/* ================= ROOT VARIABLES ================= */
+
+:root {
+  --bg-dark: #f0e3e3;
+  --text: #ffffff;
+  --text-muted: #b3b3b3;
+  --accent: #00ffd5;
+}
+
+/* ================= FULL SCREEN ABOUT ================= */
+
+.about-section {
+  min-height: 100vh;
+  padding: 0 10%;
+  display: flex;
+  align-items: center;
+  background: var(--bg-dark);   /* Same as Hero */
+  color: var(--text);
+}
+
+.about-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Title */
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+/* Intro */
+.about-intro {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  max-width: 700px;
+  color: var(--text-muted);
+}
+
+.about-intro .accent {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ===== Feature Grid ===== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin: 35px 0;
+}
+
+.about-card {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(194, 162, 162, 0.08);
+}
+
+.about-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.about-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+/* Remove border for last row */
+.about-card:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+/* Offline Section */
+.offline-section {
+  max-width: 700px;
+  margin-top: 20px;
+}
+
+.offline-section h3 {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.offline-section p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-card {
+    border-bottom: 1px solid rgba(114, 76, 76, 0.842);
+  }
+
+  .about-card:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 70px 6%;
+  }
+
+  .about-title {
+    font-size: 1.8rem;
+  }
+}

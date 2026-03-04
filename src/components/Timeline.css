@@ -1,0 +1,264 @@
+/* ================= ROOT VARIABLES (Keep only once globally) ================= */
+
+:root {
+  --bg-dark: #0a0a0a;
+  --text: #ffffff;
+  --text-muted: #b3b3b3;
+  --accent: #00ffd5;
+}
+
+/* ================= TIMELINE SECTION ================= */
+
+.timeline-section {
+  min-height: 40vh;
+  padding: 100px 10%;
+  background: var(--bg-dark);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;     /* stack title + timeline */
+  align-items: center;        /* center horizontally */
+  justify-content: center;    /* center vertically */
+  text-align: center;         /* center text */
+}
+
+/* Wrapper (Optional but cleaner layout control) */
+.timeline-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ================= HORIZONTAL JOURNEY LINE ================= */
+
+.journey-line {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 20px;
+}
+
+/* Base Faded Line */
+.journey-line::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  left: 5%;
+  width: 90%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.15);
+  z-index: 0;
+  border-radius: 2px;
+}
+
+/* Animated Rainbow Route Line */
+.journey-line::after {
+  content: "";
+  position: absolute;
+  top: 16px;
+  left: 5%;
+  width: 0%;
+  height: 8px;
+  border-radius: 50% 50% 0 0;
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff
+  );
+  background-size: 400% 100%;
+  z-index: 1;
+
+  animation: drawRoute 7s ease forwards,
+             rainbow 7s linear infinite 7s;
+}
+
+/* Grow line */
+@keyframes drawRoute {
+  from { width: 0%; }
+  to { width: 83%; }
+}
+
+/* Gradient Animation */
+@keyframes rainbow {
+  from { background-position: 0% 0; }
+  to { background-position: 400% 0; }
+}
+
+/* ================= MILESTONES ================= */
+
+.milestone {
+  text-align: center;
+  width: 23%;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  animation: popIn 0.6s ease forwards;
+}
+
+.milestone:nth-child(1) { animation-delay: 0.5s; }
+.milestone:nth-child(2) { animation-delay: 1s; }
+.milestone:nth-child(3) { animation-delay: 1.5s; }
+.milestone:nth-child(4) { animation-delay: 2s; }
+
+@keyframes popIn {
+  0% { transform: translateY(20px) scale(0.8); opacity: 0; }
+  60% { transform: translateY(-5px) scale(1.1); opacity: 1; }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ================= DOT ================= */
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin: 0 auto 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Pulsing glow */
+.dot::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.5;
+  animation: trail 5s ease-out infinite;
+}
+
+@keyframes trail {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+  50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.3; }
+  100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+/* Hollow Dot */
+.hollow {
+  background: transparent;
+  border: 2px solid var(--accent);
+}
+
+/* Highlight */
+.highlight .dot {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px var(--accent);
+}
+
+/* Active Pulse */
+.active .dot {
+  animation: pulse 1.5s infinite;
+  border: 2px solid var(--accent);
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.7);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 15px 5px rgba(0, 255, 255, 0.4);
+    transform: scale(1.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 255, 0);
+    transform: scale(1);
+  }
+}
+
+/* ================= TEXT ================= */
+
+.milestone h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.milestone p,
+.milestone span {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .journey-line {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  .journey-line::before,
+  .journey-line::after {
+    display: none;
+  }
+
+  .milestone {
+    width: 100%;
+  }
+}
+/* Default (Desktop) */
+.journey {
+  font-size: 0.25rem;
+  margin-top: 40px;
+}
+
+/* 📱 Mobile Center Alignment */
+@media (max-width: 768px) {
+  .journey {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin: 40px auto 0 auto;
+  }
+}
+@media (max-width: 900px) {
+  .timeline-section {
+    flex-direction: column;
+    align-items: flex-start;  /* keep title left */
+    padding-top: 60px;
+  }
+}
+@media (max-width: 900px) {
+
+  .timeline-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center everything horizontally */
+    text-align: center;    /* center text */
+  }
+
+  .timeline-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center content */
+  }
+
+  .journey-line {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* center milestones */
+    gap: 60px;
+  }
+
+  .milestone {
+    width: 100%;
+    text-align: center;
+  }
+
+  .timeline-title {
+    text-align: center;
+    width: 100%;
+  }
+}
