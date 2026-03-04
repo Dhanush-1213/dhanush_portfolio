@@ -1,4 +1,4 @@
-import "./TechStack.css";
+import "./Techstack.css";
 import { useEffect } from "react";
 
 export default function TechStack() {
