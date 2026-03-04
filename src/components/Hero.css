@@ -247,3 +247,14 @@
     padding: 2rem 4%;
   }
 }
+/* ===== HERO SECTION MOBILE ===== */
+@media (max-width: 992px) {
+  .hero-section {
+    min-height: 90vh; /* smaller than desktop for mobile */
+    padding: 2rem 4%; /* reduce padding on sides */
+    display: flex;
+    flex-direction: column; /* stack content vertically */
+    align-items: center;    /* center horizontally */
+    justify-content: center; /* center vertically */
+  }
+}
