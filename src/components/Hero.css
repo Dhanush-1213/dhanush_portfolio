@@ -125,7 +125,7 @@
   border: 2px solid rgba(255, 255, 255, 0.15);
 
   transform: translateX(-30px);
-  transition: 0.4s ease;
+  transition: 0.3s ease;
 }
 
 .hero-image:hover {
@@ -151,5 +151,99 @@
   /* 🔥 Center buttons */
   .hero-buttons {
     justify-content: center;
+  }
+}
+/* ===== MOBILE RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 992px) {
+  /* Container layout */
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem; /* reduce gap for smaller screens */
+    padding: 0 4%; /* adjust horizontal padding */
+  }
+
+  /* Hide code line */
+  .hero-left .code-line {
+    display: none;
+  }
+
+  /* Adjust left side */
+  .hero-left {
+    max-width: 100%;
+    margin-left: 0; /* reset left margin */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Title */
+  .hero-title {
+    font-size: 2.0rem; /* smaller on mobile */
+    line-height: 1.2;
+  }
+
+  .accent {
+    color: #1bdbdf;
+  }
+
+  /* Subtitle + TypeAnimation */
+  .hero-subtitle {
+    font-size: 1.9rem; /* smaller */
+    line-height: 1.4;
+    color: #6cd46a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-subtitle span.static-text {
+    margin-bottom: 0.5rem; /* spacing between "I build" and typewriter */
+  }
+
+  /* Hero energy section */
+  .hero-energy {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  /* Tagline */
+  .hero-tagline {
+    font-size: 1.0rem;
+    line-height: 1.5;
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  /* Buttons */
+  /* Buttons - horizontal on mobile */
+@media (max-width: 992px) {
+  .hero-buttons {
+    flex-direction: row; /* horizontal */
+    gap: 1rem;           /* spacing between buttons */
+    justify-content: center; /* center buttons */
+    margin-top: 3.0rem;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: auto;       /* remove full-width */
+    padding: 0.75rem 0.75rem; /* keep consistent padding */
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+  /* Right side - hide image */
+  .hero-right {
+    display: none;
+  }
+
+  /* Hero section padding */
+  .hero-section {
+    padding: 2rem 4%;
   }
 }

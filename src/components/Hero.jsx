@@ -3,14 +3,10 @@ import { TypeAnimation } from "react-type-animation";
 import "./Hero.css";
 
 export default function Hero() {
-  // Variants for staggered animation
+  // Animation variants
   const containerVariants = {
     hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.25,
-      },
-    },
+    visible: { transition: { staggerChildren: 0.25 } },
   };
 
   const fadeInUp = {
@@ -42,9 +38,9 @@ export default function Hero() {
             Hey there, I'm <span className="accent">Dhanush</span>.
           </motion.h1>
 
-          {/* Static "I build" text with typewriter for the rest */}
+          {/* Inline "I build" with typewriter */}
           <motion.p className="hero-subtitle" variants={fadeInUp}>
-            I build{" "}
+            <span className="static-text">I build&nbsp;</span>
             <TypeAnimation
               sequence={[
                 "moody algorithms", 
@@ -91,4 +87,3 @@ export default function Hero() {
     </section>
   );
 }
-
