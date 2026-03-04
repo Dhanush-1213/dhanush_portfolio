@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
-import "./Contact.css";
+import "./contact.css";
 
 export default function Contact() {
   return (
