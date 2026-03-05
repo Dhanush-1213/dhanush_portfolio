@@ -12,6 +12,7 @@ import { motion } from "framer-motion";
 import "./Navbar.css";
 
 export default function Navbar() {
+
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ export default function Navbar() {
     { id: "contact", icon: <FaEnvelope />, label: "Contact" },
   ];
 
-  // ✅ Navbar background change on scroll
+  // Navbar background on scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 60);
@@ -34,7 +35,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Professional section detection (FIXED)
+  // Section detection
   useEffect(() => {
     const sections = document.querySelectorAll("section");
 
@@ -47,19 +48,14 @@ export default function Navbar() {
         });
       },
       {
-        root: null,
-        threshold: 0.6, // section must be 60% visible
+        threshold: 0.6,
       }
     );
 
-    sections.forEach((section) => {
-      observer.observe(section);
-    });
+    sections.forEach((section) => observer.observe(section));
 
     return () => {
-      sections.forEach((section) => {
-        observer.unobserve(section);
-      });
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
@@ -67,23 +63,64 @@ export default function Navbar() {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
 
+  // Animation variants
+  const navContainer = {
+    hidden: { y: -80, opacity: 0 },
+    show: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const navItem = {
+    hidden: { opacity: 0, y: -20 },
+    show: { opacity: 1, y: 0 },
+  };
+
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <motion.nav
+      className={`navbar ${scrolled ? "scrolled" : ""}`}
+      variants={navContainer}
+      initial="hidden"
+      animate="show"
+    >
+
+      {/* Hamburger */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
+      {/* Links */}
       <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+
         {navItems.map((item) => (
-          <a
+          <motion.a
             key={item.id}
             href={`#${item.id}`}
+            variants={navItem}
             className={active === item.id ? "active" : ""}
-            onClick={() => {
+            onClick={(e) => {
+
+              e.preventDefault();
+
+              const section = document.getElementById(item.id);
+
+              section.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+              });
+
               setActive(item.id);
               setMenuOpen(false);
+
             }}
           >
+
             {item.icon}
             <span>{item.label}</span>
 
@@ -93,14 +130,16 @@ export default function Navbar() {
                 className="active-indicator"
                 transition={{
                   type: "spring",
-                  stiffness: 400,
-                  damping: 30,
+                  stiffness: 500,
+                  damping: 35,
                 }}
               />
             )}
-          </a>
+
+          </motion.a>
         ))}
+
       </div>
-    </nav>
+    </motion.nav>
   );
 }

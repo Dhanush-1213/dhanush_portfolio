@@ -1,56 +1,123 @@
-// About.jsx
 import "./About.css";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function About() {
+
+  const [active, setActive] = useState(null);
+
+  const toggle = (index) => {
+    setActive(active === index ? null : index);
+  };
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.25
+      }
+    }
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const cards = [
+    {
+      title: "AI / ML",
+      text: "Not “cat vs. dog.” I build systems that solve real, cold-blooded problems."
+    },
+    {
+      title: "Backend",
+      text: "Built like a fortress. Not a single packet gets lost on my watch."
+    },
+    {
+      title: "Frontend",
+      text: "So smooth, it’s practically a felony."
+    },
+    {
+      title: "Databases",
+      text: "Strict. Disciplined. Everything in its right place."
+    }
+  ];
+
   return (
-    <section id="about" className="about-section">
-      <div className="about-wrapper">
+    <motion.section
+      id="about"
+      className="about-section"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+    >
 
-        <h2 className="about-title">
+      <motion.div className="about-wrapper" variants={container}>
+
+        <motion.h2 className="about-title" variants={fadeUp}>
           You Don’t Need a Coder. You Need a Criminal Engineer.
-        </h2>
+        </motion.h2>
 
-        <div className="about-intro">
+        <motion.div className="about-intro" variants={fadeUp}>
           <p>
-            I’m the guy you call when your <span className="accent">model’s loss function</span> is flatlining, your <span className="accent">backend</span> is gasping for air, and your <span className="accent">frontend</span> looks like it was designed in the dark.
+            I’m the guy you call when your <span className="accent">model’s loss function</span>
+            is flatlining, your <span className="accent">backend</span> is gasping for air,
+            and your <span className="accent">frontend</span> looks like it was designed in the dark.
           </p>
+
           <p>
-            I build high-octane stacks that don’t just work—they make the competition look like they’re still playing with blocks.
+            I build high-octane stacks that don’t just work—they make the competition
+            look like they’re still playing with blocks.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="about-grid">
-          <div className="about-card">
-            <h3>AI / ML</h3>
-            <p>Not “cat vs. dog.” I build systems that solve real, cold-blooded problems.</p>
-          </div>
+        {/* Cards / Accordion */}
+        <motion.div className="about-grid" variants={container}>
 
-          <div className="about-card">
-            <h3>Backend</h3>
-            <p>Built like a fortress. Not a single packet gets lost on my watch.</p>
-          </div>
+          {cards.map((card, index) => (
+            <motion.div
+              key={index}
+              className={`about-card ${active === index ? "open" : ""}`}
+              variants={fadeUp}
+              onClick={() => toggle(index)}
+            >
+              <h3>{card.title}</h3>
 
-          <div className="about-card">
-            <h3>Frontend</h3>
-            <p>So smooth, it’s practically a felony.</p>
-          </div>
+              <motion.div
+                className="card-content"
+                initial={false}
+                animate={{
+                  height: active === index ? "auto" : 0,
+                  opacity: active === index ? 1 : 0
+                }}
+                transition={{ duration: 0.35 }}
+              >
+                <p>{card.text}</p>
+              </motion.div>
 
-          <div className="about-card">
-            <h3>Databases</h3>
-            <p>Strict. Disciplined. Everything in its right place.</p>
-          </div>
-        </div>
+            </motion.div>
+          ))}
 
-        <div className="offline-section">
+        </motion.div>
+
+        <motion.div className="offline-section" variants={fadeUp}>
           <h3>Need a miracle?</h3>
           <p>
             I’m your guy. When I’m "offline," I optimize scripts that were already fast enough,
             watch 3-hour tech documentaries as “market research,” and debug problems
             I haven’t realized I created yet.
           </p>
-        </div>
+        </motion.div>
 
-      </div>
-    </section>
+      </motion.div>
+
+    </motion.section>
   );
 }

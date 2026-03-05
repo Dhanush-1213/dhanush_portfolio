@@ -35,7 +35,7 @@
 }
 
 .tech-category h3 {
-  font-size: 1.4rem;
+  font-size: 1.4=rem;
   margin-bottom: 30px;
   color: var(--accent);
   font-weight: 500;
@@ -137,7 +137,7 @@
 }
 
 .section-title {
-  font-size: 1.0rem;
+  font-size: 0.5rem;
   margin-bottom: 1.0rem;
   text-align: center;
 }
@@ -159,8 +159,8 @@
 }
 
 .tech-row img {
-  width: 50px;      /* Set icon size */
-  height: 50px;     /* Maintain square shape */
+  width: 43px;      /* Set icon size */
+  height: 43px;     /* Maintain square shape */
   object-fit: contain;
   transition: transform 0.3s;
   border-radius: 35%; /* Optional: makes them circular bubbles */
@@ -168,4 +168,18 @@
 
 .tech-row img:hover {
   transform: scale(1.5); /* Slight hover effect */
+}
+.tech-category h3 {
+  font-size: 1.0rem;
+  font-weight: 200;
+  margin-bottom: 20px;
+  color: var(--accent);
+  letter-spacing: 1px;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .tech-category h3 {
+    font-size: 1.2rem;
+    font-weight: 100;
+  }
 }

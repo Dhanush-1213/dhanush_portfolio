@@ -6,17 +6,17 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 35px;
+  height: 30px;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(18, 4, 4, 0.6);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(14, 7, 7, 0.05);
   z-index: 1000;
   transition: all 0.3s ease;
 }
@@ -42,7 +42,7 @@
   padding: 6px 4px;
 
   text-decoration: none;
-  color: #c6b1b1;
+  color: #82b485;
   font-size: 15px;
   font-weight: 500;
 
@@ -50,7 +50,7 @@
 }
 
 .nav-links a:hover {
-  color: #ffffff;
+  color: #4982ce;
 }
 
 /* Active Glow Effect */
@@ -62,7 +62,7 @@
   height: 3px;
   border-radius: 20px;
 
-  background: linear-gradient(90deg, #00bfff, #8a2be2);
+  background: linear-gradient(90deg, #46a1c0, #8a2be2);
 }
 
 /* Icons */
@@ -78,10 +78,10 @@
 .hamburger {
   display: none;
   position: absolute;
-  right: 8%;
-  font-size: 25px;
+  right: 7%;
+  font-size: 23px;
   cursor: pointer;
-  color: #4e71b0;
+  color: #000000;
 }
 
 /* ===============================

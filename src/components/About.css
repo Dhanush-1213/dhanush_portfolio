@@ -14,7 +14,7 @@
   padding: 0 10%;
   display: flex;
   align-items: center;
-  background: var(--bg-dark);   /* Same as Hero */
+  background: var(--bg-dark);
   color: var(--text);
 }
 
@@ -25,6 +25,7 @@
 }
 
 /* Title */
+
 .about-title {
   font-size: 2rem;
   font-weight: 700;
@@ -33,6 +34,7 @@
 }
 
 /* Intro */
+
 .about-intro {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -46,7 +48,7 @@
   font-weight: 600;
 }
 
-/* ===== Feature Grid ===== */
+/* ================= GRID ================= */
 
 .about-grid {
   display: grid;
@@ -54,6 +56,8 @@
   gap: 30px;
   margin: 35px 0;
 }
+
+/* Cards */
 
 .about-card {
   padding: 8px 0;
@@ -74,11 +78,13 @@
 }
 
 /* Remove border for last row */
+
 .about-card:nth-last-child(-n+2) {
   border-bottom: none;
 }
 
-/* Offline Section */
+/* ================= OFFLINE SECTION ================= */
+
 .offline-section {
   max-width: 700px;
   margin-top: 20px;
@@ -99,6 +105,7 @@
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1024px) {
+
   .about-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -111,48 +118,71 @@
   .about-card:last-child {
     border-bottom: none;
   }
+
 }
 
-@media (max-width: 768px) {
-  .about-section {
-    padding: 70px 6%;
-  }
+/* ================= MOBILE ================= */
 
-  .about-title {
-    font-size: 1.8rem;
-  }
-}
 @media (max-width: 992px) {
-  /* Hide the offline / "Need a miracle?" section */
+
+  /* hide offline section */
+
   .offline-section {
     display: none;
   }
-}
-@media (max-width: 992px) {
-  /* Center About section title */
+
+  /* center title */
+
   .about-title {
     text-align: center;
-    font-size: 1.8rem; /* adjust font size for mobile */
+    font-size: 1.8rem;
     line-height: 1.3;
     margin-bottom: 1.5rem;
   }
 
-  /* Optional: adjust About intro text for mobile */
+  /* center intro text */
+
   .about-intro p {
     text-align: center;
     font-size: 1rem;
     line-height: 1.5;
   }
 
-  /* Optional: stack About cards vertically */
+}
+
+/* ================= MOBILE SECTION SIZE ================= */
+
+.about-section {
+  min-height: auto;
+  padding: 2rem 4%;
+}
+
+/* ================= HORIZONTAL CARD SCROLL (MOBILE) ================= */
+
+@media (max-width: 768px) {
+
   .about-grid {
     display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
   }
+
+  .about-card {
+    min-width: 260px;
+    flex: 0 0 auto;
+    scroll-snap-align: center;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 18px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* hide scrollbar */
+
+  .about-grid::-webkit-scrollbar {
+    display: none;
+  }
+
 }
-/* About Section */
-  .about-section {
-    min-height: auto; /* let it size naturally based on content */
-    padding: 2rem 4%; /* consistent mobile padding */
-  }

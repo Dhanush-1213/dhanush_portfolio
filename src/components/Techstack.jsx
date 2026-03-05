@@ -1,86 +1,111 @@
 import "./Techstack.css";
-import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function TechStack() {
-  useEffect(() => {
-    const items = document.querySelectorAll(".fade-in");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("show");
-        });
-      },
-      { threshold: 0.2 }
-    );
-    items.forEach((item) => observer.observe(item));
-  }, []);
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.30
+      }
+    }
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: "easeOut"
+      }
+    }
+  };
 
   return (
-    <section id="techstack" className="tech-section">
-      <h2 className="section-title fade-in">Tech Stack</h2>
+    <motion.section
+      id="techstack"
+      className="tech-section"
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}   // ✅ animation plays only once
+    >
 
-      {/* Core Languages */}
-      <div className="tech-category fade-in">
-        <h3>Core Languages</h3>
-        <div className="tech-row">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
-        </div>
-      </div>
+      <motion.h2 className="section-title" variants={fadeUp}>
+        Tech Stack
+      </motion.h2>
 
-      {/* Machine Learning / AI */}
-      <div className="tech-category fade-in">
-        <h3>Machine Learning / AI</h3>
-        <div className="tech-row">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" alt="Streamlit" />
-        </div>
-      </div>
+      <motion.div variants={container}>
 
-      {/* Web Development */}
-      <div className="tech-category fade-in">
-        <h3>Web Development</h3>
-        <div className="tech-row">
-          {/* Frontend */}
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+        {/* Core Languages */}
+        <motion.div className="tech-category" variants={fadeUp}>
+          <h3>Core Languages</h3>
 
-          {/* Backend */}
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
-        </div>
-      </div>
+          <div className="tech-row">
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+          </div>
+        </motion.div>
 
-      {/* Databases */}
-      <div className="tech-category fade-in">
-        <h3>Databases</h3>
-        <div className="tech-row">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
-        </div>
-      </div>
+        {/* Machine Learning */}
+        <motion.div className="tech-category" variants={fadeUp}>
+          <h3>AI/ML</h3>
 
-      {/* Tools & Platforms */}
-      <div className="tech-category fade-in">
-        <h3>Tools & Platforms</h3>
-        <div className="tech-row">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-original.svg" alt="ROS" />
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu" />
-        </div>
-      </div>
-    </section>
+          <div className="tech-row">
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" alt="Streamlit" />
+          </div>
+        </motion.div>
+
+        {/* Web Development */}
+        <motion.div className="tech-category" variants={fadeUp}>
+          <h3>Web Development</h3>
+
+          <div className="tech-row">
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" />
+          </div>
+        </motion.div>
+
+        {/* Databases */}
+        <motion.div className="tech-category" variants={fadeUp}>
+          <h3>Databases</h3>
+
+          <div className="tech-row">
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" />
+          </div>
+        </motion.div>
+
+        {/* Tools */}
+        <motion.div className="tech-category" variants={fadeUp}>
+          <h3>Tools & Platforms</h3>
+
+          <div className="tech-row">
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ros/ros-original.svg" alt="ROS" />
+            <motion.img variants={fadeUp} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu" />
+          </div>
+        </motion.div>
+
+      </motion.div>
+
+    </motion.section>
   );
 }

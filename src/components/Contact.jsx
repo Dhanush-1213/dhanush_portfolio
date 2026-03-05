@@ -1,48 +1,107 @@
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { motion } from "framer-motion";
 import "./contact.css";
 
 export default function Contact() {
+
+  /* ============================= */
+  /* Animation Variants */
+  /* ============================= */
+
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.25
+      }
+    }
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 50 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section id="contact" className="contact-section">
-      <h2 className="section-title">Let’s Ruin Everything Together</h2>
 
-        <p className="contact-text">
-         Backend failing spectacularly? Dataset plotting rebellion? Startup teetering on genius-level insanity? 
-         Inbox: always open, like a crime scene. Not “business hours.” Emergency mode only.
-        </p>
-    
-      <form className="contact-form">
-        <input type="email" placeholder="you@domain.com" />
-        <textarea placeholder="Spill the disaster…" />
+    <motion.section
+      id="contact"
+      className="contact-section"
+      initial="hidden"
+      whileInView="show"
+
+      /* Animation only once */
+      viewport={{ once: true, amount: 0.3 }}
+
+      variants={container}
+    >
+
+      {/* Title */}
+      <motion.h2 className="section-title" variants={fadeUp}>
+        Let’s Ruin Everything Together
+      </motion.h2>
+
+      {/* Description */}
+      <motion.p className="contact-text" variants={fadeUp}>
+        Backend failing spectacularly? Dataset plotting rebellion? Startup teetering on genius-level insanity?
+        Inbox: always open, like a crime scene. Not “business hours.” Emergency mode only.
+      </motion.p>
+
+      {/* Contact Form */}
+      <motion.form className="contact-form" variants={fadeUp}>
+        <input type="email" placeholder="you@domain.com" required />
+        <textarea placeholder="Spill the disaster…" required />
         <button type="submit">Send Chaos</button>
-      </form>
+      </motion.form>
 
-      <div className="social-links">
-        <a
+      {/* Social Links */}
+      <motion.div
+        className="social-links"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+
+        <motion.a
           href="https://github.com/Dhanush-1213"
           target="_blank"
           rel="noopener noreferrer"
           className="github"
+          variants={fadeUp}
         >
           <FaGithub />
-        </a>
-        <a
+        </motion.a>
+
+        <motion.a
           href="https://www.linkedin.com/in/dhanush-k-pesuniversity"
           target="_blank"
           rel="noopener noreferrer"
           className="linkedin"
+          variants={fadeUp}
         >
           <FaLinkedin />
-        </a>
-        <a
+        </motion.a>
+
+        <motion.a
           href="https://x.com/Dhanushk9972"
           target="_blank"
           rel="noopener noreferrer"
           className="twitter"
+          variants={fadeUp}
         >
           <FaTwitter />
-        </a>
-      </div>
-    </section>
+        </motion.a>
+
+      </motion.div>
+
+    </motion.section>
   );
 }

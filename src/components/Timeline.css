@@ -70,8 +70,8 @@
   background-size: 400% 100%;
   z-index: 1;
 
-  animation: drawRoute 7s ease forwards,
-             rainbow 7s linear infinite 7s;
+  animation: drawRoute 10s ease forwards,
+             rainbow 10s linear infinite 10s;
 }
 
 /* Grow line */

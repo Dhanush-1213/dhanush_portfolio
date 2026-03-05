@@ -45,7 +45,7 @@
   margin: 1rem 0;
   line-height: 1.6;
   font-weight: 400;
-  color: #6cd46a;
+  color: #4ac741;
   letter-spacing: 0.8px;
 }
 
@@ -191,7 +191,7 @@
   .hero-subtitle {
     font-size: 1.9rem; /* smaller */
     line-height: 1.4;
-    color: #6cd46a;
+    color: #f9cb14;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -250,11 +250,22 @@
 /* ===== HERO SECTION MOBILE ===== */
 @media (max-width: 992px) {
   .hero-section {
-    min-height: 90vh; /* smaller than desktop for mobile */
+    min-height: 100vh; /* smaller than desktop for mobile */
     padding: 2rem 4%; /* reduce padding on sides */
     display: flex;
     flex-direction: column; /* stack content vertically */
     align-items: center;    /* center horizontally */
     justify-content: center; /* center vertically */
+  }
+}
+/* Hide line break on desktop */
+.mobile-break {
+  display: none;
+}
+
+/* Show line break on mobile */
+@media (max-width: 768px) {
+  .mobile-break {
+    display: block;
   }
 }
