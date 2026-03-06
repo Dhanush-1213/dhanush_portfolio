@@ -12,7 +12,6 @@ import { motion } from "framer-motion";
 import "./Navbar.css";
 
 export default function Navbar() {
-
   const [active, setActive] = useState("home");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,10 +26,7 @@ export default function Navbar() {
 
   // Navbar background on scroll
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 60);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -38,27 +34,19 @@ export default function Navbar() {
   // Section detection
   useEffect(() => {
     const sections = document.querySelectorAll("section");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id);
-          }
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
-      {
-        threshold: 0.6,
-      }
+      { threshold: 0.6 }
     );
-
     sections.forEach((section) => observer.observe(section));
-
-    return () => {
-      sections.forEach((section) => observer.unobserve(section));
-    };
+    return () => sections.forEach((section) => observer.unobserve(section));
   }, []);
 
+  // Lock scroll when menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "auto";
   }, [menuOpen]);
@@ -69,18 +57,11 @@ export default function Navbar() {
     show: {
       y: 0,
       opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-        staggerChildren: 0.15,
-      },
+      transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.15 },
     },
   };
 
-  const navItem = {
-    hidden: { opacity: 0, y: -20 },
-    show: { opacity: 1, y: 0 },
-  };
+  const navItem = { hidden: { opacity: 0, y: -20 }, show: { opacity: 1, y: 0 } };
 
   return (
     <motion.nav
@@ -89,15 +70,18 @@ export default function Navbar() {
       initial="hidden"
       animate="show"
     >
+      {/* Brand / Logo */}
+      <div className="navbar-brand">
+        <span>D!Code</span>
+      </div>
 
       {/* Hamburger */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      {/* Links */}
+      {/* Navigation Links */}
       <div className={`nav-links ${menuOpen ? "open" : ""}`}>
-
         {navItems.map((item) => (
           <motion.a
             key={item.id}
@@ -105,40 +89,24 @@ export default function Navbar() {
             variants={navItem}
             className={active === item.id ? "active" : ""}
             onClick={(e) => {
-
               e.preventDefault();
-
               const section = document.getElementById(item.id);
-
-              section.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
-              });
-
+              section.scrollIntoView({ behavior: "smooth", block: "start" });
               setActive(item.id);
               setMenuOpen(false);
-
             }}
           >
-
             {item.icon}
             <span>{item.label}</span>
-
             {active === item.id && (
               <motion.div
                 layoutId="activeIndicator"
                 className="active-indicator"
-                transition={{
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 35,
-                }}
+                transition={{ type: "spring", stiffness: 500, damping: 35 }}
               />
             )}
-
           </motion.a>
         ))}
-
       </div>
     </motion.nav>
   );

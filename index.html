@@ -9,24 +9,47 @@
     <!-- SEO -->
     <meta name="description" content="Dhanush | AI & ML Developer Portfolio" />
     <meta name="author" content="Dhanush" />
+    <meta name="keywords" content="Dhanush, AI Developer, ML Portfolio, Frontend Developer, React, Vite" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <meta name="color-scheme" content="dark light">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- Favicon (kept as your original) -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Dhanush | AI & ML Developer Portfolio" />
+    <meta property="og:description" content="Explore Dhanush's AI & ML projects and creative portfolio." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="https://yourwebsite.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dhanush | AI & ML Developer Portfolio" />
+    <meta name="twitter:description" content="Explore Dhanush's AI & ML projects and creative portfolio." />
+    <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Preconnect Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Devicons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/devicon.min.css" />
 
-    <!-- Google Font (clean modern look) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Dhanush K</title>
 
-    <title>Dhanush | Portfolio</title>
-
+    <!-- Smooth Scroll & Global Styles -->
     <style>
-      /* Prevent grey gaps */
+      /* Reset & prevent grey gaps */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
       }
 
       html, body {
@@ -34,13 +57,27 @@
         height: 100%;
         overflow-x: hidden;
         background-color: #0a0a0a;
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       }
 
       #root {
         min-height: 100vh;
       }
     </style>
+
+    <!-- Optional: PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- Optional: Analytics Placeholder -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+    -->
   </head>
 
   <body>

@@ -10,7 +10,7 @@
 /* ================= TIMELINE SECTION ================= */
 
 .timeline-section {
-  min-height: 40vh;
+  min-height: 50vh;
   padding: 100px 10%;
   background: var(--bg-dark);
   color: var(--text);

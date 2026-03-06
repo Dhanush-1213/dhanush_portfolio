@@ -65,20 +65,34 @@ export default function About() {
           You Don’t Need a Coder. You Need a Criminal Engineer.
         </motion.h2>
 
+        {/* Intro */}
         <motion.div className="about-intro" variants={fadeUp}>
           <p>
-            I’m the guy you call when your <span className="accent">model’s loss function</span>
-            is flatlining, your <span className="accent">backend</span> is gasping for air,
-            and your <span className="accent">frontend</span> looks like it was designed in the dark.
+            Model not learning? Backend hanging by a thread?
           </p>
 
           <p>
-            I build high-octane stacks that don’t just work—they make the competition
-            look like they’re still playing with blocks.
+            Frontend looking… legally questionable?
+          </p>
+
+          <p>Yeah.</p>
+
+          <p>That’s when you call me.</p>
+
+          <p>
+            I build stacks that don’t just work —
+          </p>
+
+          <p>
+            they walk into production
+          </p>
+
+          <p className="highlight-line">
+            like they own the place.
           </p>
         </motion.div>
 
-        {/* Cards / Accordion */}
+        {/* Cards */}
         <motion.div className="about-grid" variants={container}>
 
           {cards.map((card, index) => (
@@ -105,15 +119,6 @@ export default function About() {
             </motion.div>
           ))}
 
-        </motion.div>
-
-        <motion.div className="offline-section" variants={fadeUp}>
-          <h3>Need a miracle?</h3>
-          <p>
-            I’m your guy. When I’m "offline," I optimize scripts that were already fast enough,
-            watch 3-hour tech documentaries as “market research,” and debug problems
-            I haven’t realized I created yet.
-          </p>
         </motion.div>
 
       </motion.div>

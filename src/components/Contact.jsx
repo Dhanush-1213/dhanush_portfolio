@@ -1,4 +1,5 @@
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import "./contact.css";
 
@@ -36,10 +37,7 @@ export default function Contact() {
       className="contact-section"
       initial="hidden"
       whileInView="show"
-
-      /* Animation only once */
       viewport={{ once: true, amount: 0.3 }}
-
       variants={container}
     >
 
@@ -50,7 +48,7 @@ export default function Contact() {
 
       {/* Description */}
       <motion.p className="contact-text" variants={fadeUp}>
-        Backend failing spectacularly? Dataset plotting rebellion? Startup teetering on genius-level insanity?
+        Code doing weird stuff? Dataset behaving like it has attitude?
         Inbox: always open, like a crime scene. Not “business hours.” Emergency mode only.
       </motion.p>
 
@@ -91,13 +89,21 @@ export default function Contact() {
         </motion.a>
 
         <motion.a
+          href="mailto:dhanushk9972@gmail.com"
+          className="gmail"
+          variants={fadeUp}
+        >
+          <FaEnvelope />
+        </motion.a>
+
+        <motion.a
           href="https://x.com/Dhanushk9972"
           target="_blank"
           rel="noopener noreferrer"
           className="twitter"
           variants={fadeUp}
         >
-          <FaTwitter />
+          <FaXTwitter />
         </motion.a>
 
       </motion.div>

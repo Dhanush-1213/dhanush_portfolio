@@ -1,95 +1,151 @@
-/* ===============================
-   ULTRA PREMIUM DARK NAVBAR
-================================ */
+/* =============================== */
+/* VARIABLES (Customizable) */
+/* =============================== */
+:root {
+  --navbar-height: 50px;
+  --navbar-bg: transparent;
+  --navbar-scroll-bg: rgba(0, 0, 0, 0.85);
+  --navbar-text-color: #ca2222;
+  --navbar-hover-color: #00bfff;
+  --navbar-active-color: #00bfff;
+  --navbar-indicator-color: #2a60a7;
 
+  --hamburger-color: #1d1d1d;
+  --hamburger-hover-color: #3645b7;
+
+  --navbar-brand-color: #000000;       /* brand color */
+  --navbar-brand-hover-color: #ff4d6d; /* brand hover color */
+
+  --mobile-bg: #625050;
+}
+
+/* =============================== */
+/* NAVBAR - CUSTOMIZABLE VARIABLES */
+/* =============================== */
+:root {
+  --navbar-height: 50px;                /* Height of navbar */
+  --navbar-bg: rgba(0, 0, 0, 0.6);      /* Default navbar background */
+  --navbar-scroll-bg: rgba(255, 255, 255, 0.9); /* Background when scrolled */
+  --navbar-text-color: #ffffff;         /* Default link/text color */
+  --navbar-hover-color: #00bfff;        /* Link hover color */
+  --navbar-shadow: 0 4px 12px rgba(0,0,0,0.25); /* Shadow effect on scroll */
+  --navbar-backdrop: blur(10px);        /* Blur effect on scroll */
+  --navbar-transition: all 0.3s ease;   /* Smooth transition */
+}
+
+/* =============================== */
+/* NAVBAR STYLING USING VARIABLES */
+/* =============================== */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 30px;
+  height: var(--navbar-height);
 
   display: flex;
-  justify-content: center;
   align-items: center;
-
-  background: rgba(18, 4, 4, 0.6);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
-  border-bottom: 1px solid rgba(14, 7, 7, 0.05);
+  justify-content: center;
   z-index: 1000;
-  transition: all 0.3s ease;
+
+  background: var(--navbar-bg);
+  color: var(--navbar-text-color);
+  transition: var(--navbar-transition);
 }
 
 .navbar.scrolled {
-  background: rgba(10,10,10,0.95);
-  box-shadow: 0 5px 25px rgba(0,0,0,0.6);
+  background: var(--navbar-scroll-bg);
+  box-shadow: var(--navbar-shadow);
+  backdrop-filter: var(--navbar-backdrop);
 }
 
-/* Nav Links */
+/* =============================== */
+/* BRAND / LOGO (MOBILE ONLY) */
+/* =============================== */
+.navbar-brand {
+  display: none; /* hidden on desktop */
+  color: var(--navbar-brand-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: default;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: var(--navbar-brand-hover-color);
+}
+
+/* Show brand only on mobile */
+@media (max-width: 768px) {
+  .navbar-brand {
+    display: block;
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+/* =============================== */
+/* NAV LINKS */
+/* =============================== */
 .nav-links {
   display: flex;
-  gap: 70px;
-  position: relative;
+  gap: 2.5rem;
 }
 
 .nav-links a {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
-
-  padding: 6px 4px;
-
+  gap: 10px;
   text-decoration: none;
-  color: #82b485;
-  font-size: 15px;
+  color: var(--navbar-text-color);
+  font-size: 0.95rem;
   font-weight: 500;
-
-  transition: 0.3s ease;
+  padding: 8px 9px;
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #4982ce;
+  color: var(--navbar-hover-color);
 }
 
-/* Active Glow Effect */
+.nav-links a.active {
+  color: var(--navbar-active-color);
+}
+
+/* ACTIVE INDICATOR */
 .active-indicator {
   position: absolute;
-  bottom: -8px;
+  bottom: -6px;
   left: 0;
-  right: 0;
-  height: 3px;
-  border-radius: 20px;
-
-  background: linear-gradient(90deg, #46a1c0, #8a2be2);
+  width: 100%;
+  height: 2px;
+  background: var(--navbar-indicator-color);
+  border-radius: 2px;
 }
 
-/* Icons */
-.nav-links svg {
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* ===============================
-   HAMBURGER
-================================ */
-
+/* =============================== */
+/* HAMBURGER ICON */
+/* =============================== */
 .hamburger {
   display: none;
   position: absolute;
-  right: 7%;
-  font-size: 23px;
+  right: 25px;
+  font-size: 1.5rem;
+  color: var(--hamburger-color);
   cursor: pointer;
-  color: #000000;
+  transition: color 0.3s ease;
 }
 
-/* ===============================
-   MOBILE
-================================ */
+.hamburger:hover {
+  color: var(--hamburger-hover-color);
+}
 
-@media (max-width: 720px) {
-
+/* =============================== */
+/* MOBILE NAVBAR */
+/* =============================== */
+@media (max-width: 768px) {
   .hamburger {
     display: block;
   }
@@ -98,17 +154,15 @@
     position: fixed;
     top: 0;
     right: -100%;
-    width: 40%;
     height: 100vh;
-
-    background: radial-gradient(circle at top right, #303b2c, #876b6b);
-
+    width: 250px;
+    background: var(--mobile-bg);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-
-    transition: right 0.6s ease;
+    gap: 2rem;
+    transition: right 0.35s ease;
+    z-index: 1000;
   }
 
   .nav-links.open {
@@ -116,10 +170,6 @@
   }
 
   .nav-links a {
-    font-size: 24px;
-  }
-
-  .active-indicator {
-    display: none;
+    font-size: 1.2rem;
   }
 }

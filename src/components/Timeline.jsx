@@ -40,7 +40,7 @@ export default function Timeline() {
         className="section-title"
         variants={item}
       >
-        PlotTwist
+        Turns
       </motion.h2>
 
       {/* Timeline */}
