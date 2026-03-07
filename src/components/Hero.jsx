@@ -81,6 +81,8 @@ export default function Hero() {
               wrapper="span"
               cursor={true}
               repeat={Infinity}
+              speed={40}
+              deletionSpeed={25}
               style={{ display: "inline-block" }}
             />
           </motion.p>

@@ -1,13 +1,32 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter, FaEnvelope } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { useRef } from "react";
 import "./contact.css";
 
 export default function Contact() {
 
-  /* ============================= */
-  /* Animation Variants */
-  /* ============================= */
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_uepboab",
+      "template_zuolh8b",
+      form.current,
+      "70ZUhf2vIB3UWPK83"
+    )
+    .then(() => {
+      alert("Message sent successfully 🚀");
+    })
+    .catch(() => {
+      alert("Failed to send message ❌");
+    });
+
+    e.target.reset();
+  };
 
   const container = {
     hidden: {},
@@ -41,22 +60,45 @@ export default function Contact() {
       variants={container}
     >
 
-      {/* Title */}
       <motion.h2 className="section-title" variants={fadeUp}>
         Let’s Ruin Everything Together
       </motion.h2>
 
-      {/* Description */}
       <motion.p className="contact-text" variants={fadeUp}>
         Code doing weird stuff? Dataset behaving like it has attitude?
-        Inbox: always open, like a crime scene. Not “business hours.” Emergency mode only.
+        Inbox always open.
       </motion.p>
 
       {/* Contact Form */}
-      <motion.form className="contact-form" variants={fadeUp}>
-        <input type="email" placeholder="you@domain.com" required />
-        <textarea placeholder="Spill the disaster…" required />
+      <motion.form
+        ref={form}
+        onSubmit={sendEmail}
+        className="contact-form"
+        variants={fadeUp}
+      >
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="you@domain.com"
+          required
+        />
+
+        <textarea
+          name="message"
+          placeholder="Spill the disaster…"
+          required
+        />
+
         <button type="submit">Send Chaos</button>
+
       </motion.form>
 
       {/* Social Links */}

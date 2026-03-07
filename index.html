@@ -2,46 +2,60 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    
+
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Prevent white flash -->
+    <style>
+      html, body {
+        background-color: #0a0a0a;
+      }
+    </style>
 
     <!-- SEO -->
     <meta name="description" content="Dhanush | AI & ML Developer Portfolio" />
     <meta name="author" content="Dhanush" />
     <meta name="keywords" content="Dhanush, AI Developer, ML Portfolio, Frontend Developer, React, Vite" />
     <meta name="theme-color" content="#0a0a0a" />
-    <meta name="color-scheme" content="dark light">
+    <meta name="color-scheme" content="dark light" />
 
-    <!-- Favicon (kept as your original) -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 
-    <!-- Open Graph / Social Sharing -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Dhanush | AI & ML Developer Portfolio" />
     <meta property="og:description" content="Explore Dhanush's AI & ML projects and creative portfolio." />
     <meta property="og:image" content="/og-image.png" />
     <meta property="og:url" content="https://yourwebsite.com" />
     <meta property="og:type" content="website" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Dhanush | AI & ML Developer Portfolio" />
     <meta name="twitter:description" content="Explore Dhanush's AI & ML projects and creative portfolio." />
     <meta name="twitter:image" content="/og-image.png" />
 
-    <!-- Preconnect Fonts for faster loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Devicons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/devicon.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/devicon.min.css"
+    />
 
     <title>Dhanush K</title>
 
-    <!-- Smooth Scroll & Global Styles -->
+    <!-- Global Styles -->
     <style>
-      /* Reset & prevent grey gaps */
       * {
         margin: 0;
         padding: 0;
@@ -52,36 +66,32 @@
         scroll-behavior: smooth;
       }
 
-      html, body {
+      html,
+      body {
         width: 100%;
         height: 100%;
         overflow-x: hidden;
         background-color: #0a0a0a;
-        font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+          sans-serif;
       }
 
       #root {
         min-height: 100vh;
+        background-color: #0a0a0a;
       }
     </style>
 
-    <!-- Optional: PWA Manifest -->
-    <link rel="manifest" href="/manifest.json">
-
-    <!-- Optional: Analytics Placeholder -->
-    <!--
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-    -->
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
   </head>
 
   <body>
+
+    <!-- React App -->
     <div id="root"></div>
+
     <script type="module" src="/src/main.jsx"></script>
+
   </body>
 </html>

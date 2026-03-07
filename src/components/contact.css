@@ -4,8 +4,10 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+
   padding: 4rem 1rem;
-  background-color: #000;
+
+  background: #0a0a0a; /* same as hero section */
   color: #ede2e2;
 }
 
@@ -18,7 +20,8 @@
 /* Paragraphs */
 .contact-section .contact-text {
   max-width: 600px;
-  margin-bottom: 3.0rem;
+  margin-bottom: 3rem;
+  color: #bfbfbf;
 }
 
 /* Form */
@@ -34,8 +37,13 @@
 .contact-form textarea {
   padding: 0.8rem 1rem;
   font-size: 1rem;
+
   border-radius: 8px;
-  border: 2px solid #00bfff;
+  border: 2px solid #00ffd5;
+
+  background: #0f0f0f;   /* subtle dark input */
+  color: #fff;
+
   outline: none;
 }
 
@@ -49,16 +57,19 @@
   padding: 0.8rem 1rem;
   font-size: 1rem;
   font-weight: bold;
+
   color: #000;
-  background-color: #00bfff;
+  background-color: #3d9e9b;
+
   border-radius: 8px;
   border: none;
+
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .contact-form button:hover {
-  background-color: #009acd;
+  background-color: #00e6c1;
 }
 
 /* Social links */
@@ -80,7 +91,7 @@
 
 /* Individual colors */
 .social-links .github {
-  color: #fffefe;
+  color: #ffffff;
 }
 
 .social-links .linkedin {
@@ -92,5 +103,5 @@
 }
 
 .social-links .gmail {
-  color: #ea4335;
+  color: #179328;
 }

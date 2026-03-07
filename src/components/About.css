@@ -23,9 +23,8 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-
-  margin-left: 0px; /* move content slightly left like hero */
 }
+
 
 /* ================= TITLE ================= */
 
@@ -74,33 +73,43 @@
 /* ================= CARDS ================= */
 
 .about-card {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  cursor: pointer;
-  transition: all 0.25s ease;
+  padding: 18px;
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
 }
 
-.about-card:hover {
-  transform: translateX(6px);
+
+/* Hover only on devices that support hover */
+
+@media (hover: hover) {
+
+  .about-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+
+    box-shadow: 
+      0 0 10px rgba(0,255,213,0.25),
+      0 0 20px rgba(0,255,213,0.15);
+  }
+
 }
+
 
 .about-card h3 {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .about-card p {
   font-size: 0.9rem;
   line-height: 1.5;
   color: var(--text-muted);
-}
-
-
-/* remove border last row */
-
-.about-card:nth-last-child(-n+2) {
-  border-bottom: none;
 }
 
 
@@ -133,20 +142,12 @@
     gap: 20px;
   }
 
-  .about-card {
-    border-bottom: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .about-card:last-child {
-    border-bottom: none;
-  }
-
 }
 
 
 /* ================= MOBILE ================= */
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
 
   .about-section {
     padding: 3rem 6%;
@@ -168,48 +169,19 @@
     font-size: 1rem;
   }
 
-  /* hide offline section */
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-card {
+    width: 100%;
+    padding: 18px;
+  }
 
   .offline-section {
     display: none;
   }
 
-}
-
-
-/* ================= MOBILE HORIZONTAL SCROLL ================= */
-
-@media (max-width: 768px) {
-
-  .about-grid {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
-    padding-bottom: 10px;
-    scroll-snap-type: x mandatory;
-  }
-
-  .about-card {
-    min-width: 260px;
-    flex: 0 0 auto;
-    scroll-snap-align: center;
-
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 20px;
-    border-radius: 12px;
-
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(10px);
-  }
-
-  .about-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-}
-.center-intro {
-  text-align: center;
-  max-width: 650px;
-  margin: auto;
-  line-height: 1.8;
 }
